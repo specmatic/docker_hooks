@@ -1,0 +1,104 @@
+% docker run --network=host -it -v "$PWD/openapi.yaml:/usr/src/app/openapi.yaml" specmatic_hooks test openapi.yaml
+🔐 Validating TaaS authentication...
+✅ TaaS authentication successful.
+Running in test mode...
+🚀 Executing Specmatic with args : test openapi.yaml
+Specmatic Version: v2.13.2
+
+Could not find the Specmatic configuration at path /usr/src/app/specmatic.yaml
+API Specification Summary: openapi.yaml
+  OpenAPI Version: 3.0.1
+  API Paths: 2, API Operations: 2
+  Schema components: 3, Security Schemes: none
+
+
+Failed to query swaggerUI, status code: 400
+EndpointsAPI and SwaggerUI URL missing; cannot calculate actual coverage
+
+
+--------------------
+  Request to http://localhost:9000 at 2025-5-27 3:4:43.731
+    PUT /products/1
+    Specmatic-Response-Code: 200
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+
+    {
+        "name": "Artificial Lamp",
+        "cost": 100
+    }
+
+  Response at 2025-5-27 3:4:43.731
+    200 OK
+    Vary: Origin
+    X-Specmatic-Result: success
+    Content-Length: 63
+    Content-Type: application/json
+    Connection: keep-alive
+
+    {
+        "id": 1,
+        "name": "Artificial Lamp",
+        "cost": 100
+    }
+
+ Scenario: PUT /products/(id:number) -> 200 | EX:200_UPDATE has SUCCEEDED
+
+
+--------------------
+  Request to http://localhost:9000 at 2025-5-27 3:4:43.760
+    POST /products
+    Specmatic-Response-Code: 200
+    Accept-Charset: UTF-8
+    Accept: */*
+    Content-Type: application/json
+
+    {
+        "name": "Wooden Sofa",
+        "cost": 300
+    }
+
+  Response at 2025-5-27 3:4:43.760
+    200 OK
+    Vary: Origin
+    X-Specmatic-Result: success
+    Content-Length: 59
+    Content-Type: application/json
+    Connection: keep-alive
+
+    {
+        "id": 2,
+        "name": "Wooden Sofa",
+        "cost": 300
+    }
+
+ Scenario: POST /products -> 200 | EX:200_ADD has SUCCEEDED
+
+Could not load report configuration, coverage will be calculated but no coverage threshold will be enforced
+
+|----------------------------------------------------------------------|
+| SPECMATIC API COVERAGE SUMMARY                                       |
+|----------------------------------------------------------------------|
+| coverage | path           | method | response | #exercised | result  |
+|----------|----------------|--------|----------|------------|---------|
+| 100%     | /products/{id} | PUT    | 200      | 1          | covered |
+| 100%     | /products      | POST   | 200      | 1          | covered |
+|----------------------------------------------------------------------|
+| 100% API Coverage reported from 2 Paths                              |
+|----------------------------------------------------------------------|
+
+
+
+Generating HTML report...
+Successfully generated HTML report in ./build/reports/specmatic/html
+Saving Open API Coverage Report json to ./build/reports/specmatic ...
+
+
+Tests run: 2, Successes: 2, Failures: 0, Errors: 0
+
+Executed at 2025-05-27T15:04:43.959934125
+Exiting with code: 0
+🔌 test container ...
+📊 Logging to New Relic logs...
+✅ Post-hook complete.

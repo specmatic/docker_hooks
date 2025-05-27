@@ -1,0 +1,114 @@
+% docker run --network=host -it -v "$PWD/openapi.yaml:/usr/src/app/openapi.yaml" specmatic_hooks stub openapi.yaml
+🔐 Validating TaaS authentication...
+✅ TaaS authentication successful.
+Running in stub mode...
+🚀 Executing Specmatic with args : stub openapi.yaml
+Specmatic Version: v2.13.2
+
+Could not find the Specmatic configuration at path /usr/src/app/specmatic.yaml
+
+Loading the spec file: openapi.yaml
+
+Could not find the Specmatic configuration at path /usr/src/app/specmatic.yaml
+API Specification Summary: openapi.yaml
+  OpenAPI Version: 3.0.1
+  API Paths: 2, API Operations: 2
+  Schema components: 3, Security Schemes: none
+
+
+
+
+Stub server is running on the following URLs:
+- http://0.0.0.0:9000 serving endpoints from specs:
+        1. openapi.yaml
+
+Press Ctrl + C to stop.
+
+--------------------
+  Request to port '9000' at 2025-5-27 3:4:43.671
+    GET /swagger/v1/swagger.yaml
+    Accept-Charset: UTF-8
+    Accept: */*
+    User-Agent: Ktor client
+    Content-Length: 0
+    Content-Type: text/plain
+    Host: localhost:9000
+    Connection: Keep-Alive
+
+
+
+  Response at 2025-5-27 3:4:43.679
+    400 Bad Request
+    Content-Type: text/plain
+    X-Specmatic-Result: failure
+    X-Specmatic-Empty: true
+
+    No matching REST stub or contract found for method GET and path /swagger/v1/swagger.yaml
+
+
+--------------------
+  Contract matched: openapi.yaml
+
+  Request to port '9000' at 2025-5-27 3:4:43.725
+    PUT /products/1
+    Specmatic-Response-Code: 200
+    Accept-Charset: UTF-8
+    Accept: */*
+    User-Agent: Ktor client
+    Content-Length: 50
+    Content-Type: application/json
+    Host: localhost:9000
+    Connection: Keep-Alive
+
+    {
+        "name": "Artificial Lamp",
+        "cost": 100
+    }
+
+  Response at 2025-5-27 3:4:43.729
+    200 OK
+    Content-Type: application/json
+    X-Specmatic-Result: success
+
+    {
+        "id": 1,
+        "name": "Artificial Lamp",
+        "cost": 100
+    }
+
+
+--------------------
+  Contract matched: openapi.yaml
+
+  Request to port '9000' at 2025-5-27 3:4:43.758
+    POST /products
+    Specmatic-Response-Code: 200
+    Accept-Charset: UTF-8
+    Accept: */*
+    User-Agent: Ktor client
+    Content-Length: 46
+    Content-Type: application/json
+    Host: localhost:9000
+    Connection: Keep-Alive
+
+    {
+        "name": "Wooden Sofa",
+        "cost": 300
+    }
+
+  Response at 2025-5-27 3:4:43.759
+    200 OK
+    Content-Type: application/json
+    X-Specmatic-Result: success
+
+    {
+        "id": 2,
+        "name": "Wooden Sofa",
+        "cost": 300
+    }
+
+^CShutting down stub servers
+🔌 stub container ...
+📊 Logging to New Relic logs...
+✅ Post-hook complete.
+Exiting with code: 130
