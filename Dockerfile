@@ -1,4 +1,4 @@
-FROM znsio/specmatic:latest
+FROM specmatic/specmatic:latest
 
 RUN apk add --no-cache tini bash
 
